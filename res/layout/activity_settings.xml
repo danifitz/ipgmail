@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".SettingsActivity" >
+
+    <Spinner
+        android:id="@+id/pgpmode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/smtptag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pgpmode"
+        android:layout_below="@+id/pgpmode"
+        android:text="@string/smtp" />
+
+    <EditText
+        android:id="@+id/smtpserver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/smtptag"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/smtptag"
+        android:inputType="text"
+        android:ems="10" >
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/imaptag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/smtptag"
+        android:layout_below="@+id/smtpserver"
+        android:text="@string/imap" />
+
+    <EditText
+        android:id="@+id/imapserver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/smtpserver"
+        android:layout_alignTop="@+id/imaptag"
+        android:inputType="text"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imapserver"
+        android:layout_below="@+id/imapserver"
+        android:ems="10"
+        android:inputType="text" >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username"
+        android:layout_below="@+id/username"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/usernametag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imaptag"
+        android:layout_alignTop="@+id/username"
+        android:text="@string/user" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernametag"
+        android:layout_alignTop="@+id/password"
+        android:text="@string/passwurd" />
+
+</RelativeLayout>

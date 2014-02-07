@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".KeyInfo" >
+
+    <TextView
+        android:id="@+id/keyidtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/keyid" />
+
+    <TextView
+        android:id="@+id/keyid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/keyidtag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/algorithm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/algorithmtag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/keylengthtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/algorithm"
+        android:layout_below="@+id/algorithm"
+        android:text="@string/keyleng" />
+
+    <TextView
+        android:id="@+id/keylength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/keylengthtag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/createdtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/keylength"
+        android:layout_below="@+id/keylength"
+        android:text="@string/created" />
+
+    <TextView
+        android:id="@+id/created"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/createdtag"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/createdtag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/expirytag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/created"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/created"
+        android:text="@string/expiryinfo" />
+
+    <TextView
+        android:id="@+id/expiry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expirytag"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/expirytag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/algorithmtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/keyid"
+        android:layout_below="@+id/keyid"
+        android:text="@string/algorithm" />
+
+    <TextView
+        android:id="@+id/trustleveltag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expiry"
+        android:layout_below="@+id/expiry"
+        android:text="@string/trustlvl" />
+
+    <TextView
+        android:id="@+id/trustlevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/trustleveltag"
+        android:text="" />
+
+</RelativeLayout>

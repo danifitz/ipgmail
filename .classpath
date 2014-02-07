@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="/Users/danfitzgerald/Documents/Development/generalworkspace/uk.ac.brookes.danielf.pgpmail/libs/activation.jar"/>
+	<classpathentry kind="lib" path="/Users/danfitzgerald/Documents/Development/generalworkspace/uk.ac.brookes.danielf.pgpmail/libs/additionnal.jar"/>
+	<classpathentry kind="lib" path="/Users/danfitzgerald/Documents/Development/generalworkspace/uk.ac.brookes.danielf.pgpmail/libs/mail.jar"/>
+	<classpathentry kind="lib" path="/Users/danfitzgerald/Documents/Development/generalworkspace/bouncycastle/scpg-jdk15on-1.47.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/danfitzgerald/Documents/Development/generalworkspace/bouncycastle/sc-bzip2-1.47.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/danfitzgerald/Documents/Development/generalworkspace/bouncycastle/sc-light-jdk15on-1.47.0.2.jar"/>
+	<classpathentry kind="lib" path="libs/scprov-jdk15on-1.47.0.2.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

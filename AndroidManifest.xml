@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.uk.ac.brookes.danielf.pgpmail"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.ComposeActivity"
+            android:label="@string/title_activity_compose" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.DecodeActivity"
+            android:label="@string/title_activity_decode" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.ManageKeysActivity"
+            android:label="@string/title_activity_manage_keys" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.ListKeys"
+            android:label="@string/title_activity_list_keys" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.KeyInfo"
+            android:label="@string/title_activity_key_info" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.CreateKeyActivity"
+            android:label="@string/title_activity_create_key" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.ImportKeysActivity"
+            android:label="@string/title_activity_import_keys" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.InitializeActivity"
+            android:label="@string/title_activity_initialize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.DisplayMessageActivity"
+            android:label="@string/title_activity_display_message" >
+        </activity>
+    </application>
+
+</manifest>

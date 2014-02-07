@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main strings -->
+    <string name="app_name">uk.ac.brookes.danielf.pgpmail</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_menu">Main Menu</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_compose">Compose a message</string>
+    <string name="title_activity_decode">View a message</string>
+    <string name="title_activity_manage_keys">Manage Keys</string>
+    <string name="title_activity_initialize">Initialize</string>
+    <string name="title_activity_import_keys">Import Keys</string>
+
+    <!-- Menu strings -->
+    <string-array name="main_menu_options">
+        <item>Compose</item>
+        <item>Decode</item>
+        <item>Settings</item>
+        <item>Manage Keys</item>
+    </string-array>
+
+    <!-- ManageKeys strings -->
+    <string name="switchtext">Public or Private</string>
+    <string name="switchon">Public</string>
+    <string name="switchoff">Private</string>
+    <string name="createkeys">Create keys</string>
+    <string name="server">Key Server:</string>
+    <string name="serverpath">pgp.mit.edu:11371</string>
+
+    <!-- Compose strings -->
+    <string name="from">From: </string>
+    <string name="to">To: </string>
+    <string name="selectprivatekey">select private key</string>
+    <string name="selectpublickey">select public key</string>
+    <string name="compose">Compose message: </string>
+    <string name="send">Send</string>
+    <string name="subject">Subject: </string>
+    <string name="title_activity_list_keys">ListKeys</string>
+    <string name="title_activity_key_info">KeyInfo</string>
+    <string name="title_activity_create_key">CreateKeyActivity</string>
+
+    <string-array name="publicarray">
+        <item>Daniel</item>
+        <item>Faye</item>
+        <item>Aaron</item>
+    </string-array>
+    <string-array name="privatearray">
+        <item>Daniel</item>
+        <item>Faye</item>
+        <item>Aaron</item>
+    </string-array>
+
+    <!-- Create keys strings -->
+    <string name="pass">Passphrase:</string>
+    <string name="confirm">Confirm:</string>
+    <string name="keylength">Key Length:</string>
+    <string name="expiration">Expiration:</string>
+    <string name="name">Name:</string>
+    <string name="email">Email:</string>
+    <string name="small">512</string>
+    <string name="medium">1024</string>
+    <string name="large">2048</string>
+    <string name="create">Create</string>
+
+    <!-- Import key strings -->
+    <string name="searchresults">Search Results:</string>
+
+    <!-- Key Info strings -->
+    <string name="keyid">Key ID:</string>
+    <string name="algorithm">Algorithm:</string>
+    <string name="keyleng">Key Length:</string>
+    <string name="created">Created:</string>
+    <string name="expiryinfo">Expiration:</string>
+    <string name="trustlvl">Trust Level:</string>
+    <string name="confmsg">Do you wish to continue?</string>
+    <string name="title_activity_display_message">DisplayMessageActivity</string>
+    
+    <!-- Display Message activity -->
+    <string name="decrypt">Decrypt</string>
+    <string name="verify">Verify</string>
+    
+    <!-- Settings strings -->
+    <string name="smtp">SMTP Server:</string>
+    <string name="imap">IMAP Server:</string>
+    <string name="user">Username:</string>
+    <string name="passwurd">Password:</string>
+    
+    <!-- Compose Email Alert Dialog Strings -->
+    <string name="message">Send email without a subject?</string>
+    <string name="cancel">Cancel</string>
+	
+
+</resources>

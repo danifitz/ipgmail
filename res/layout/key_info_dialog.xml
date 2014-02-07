@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dip" >
+
+    <TextView
+        android:id="@+id/keylengtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:text="@string/keyleng" />
+
+    <TextView
+        android:id="@+id/keyleng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/keylengtag"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/keylengtag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/expirtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/keyleng"
+        android:layout_below="@+id/keyleng"
+        android:textStyle="bold"
+        android:text="@string/expiryinfo" />
+        
+    <TextView
+        android:id="@+id/expir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expirtag"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/expirtag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/nametag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expir"
+        android:layout_below="@+id/expir"
+        android:textStyle="bold"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/nameconf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nametag"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/nametag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/emailtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nameconf"
+        android:layout_below="@+id/nameconf"
+        android:textStyle="bold"
+        android:text="@string/email" />
+
+    <TextView
+        android:id="@+id/emailconf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailtag"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/emailtag"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailconf"
+        android:layout_below="@+id/emailconf"
+        android:textStyle="bold"
+        android:text="@string/confmsg" />
+
+</RelativeLayout>
