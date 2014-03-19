@@ -59,23 +59,23 @@
         android:checkedButton="@+id/medium" >
 
         <RadioButton
-            android:id="@+id/small"
+            android:id="@+id/smallest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/small" />
+            android:text="@string/smallish" />
 
         <RadioButton
-            android:id="@+id/medium"
+            android:id="@+id/mediumer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/medium" />
+            android:text="@string/mediumish" />
 
         <RadioButton
-            android:id="@+id/large"
+            android:id="@+id/larger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/large" />
+            android:text="@string/largeish" />
     </RadioGroup>
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_below="@+id/keysizegroup"
         android:text="@string/expiration" />
 
-    <EditText
+   <EditText
         android:id="@+id/expiration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,10 +94,7 @@
         android:layout_alignRight="@+id/keysizegroup"
         android:layout_below="@+id/expirationlabel"
         android:ems="10"
-        android:inputType="date" >
-
-        <requestFocus />
-    </EditText>
+        android:inputType="date" />
 
     <TextView
         android:id="@+id/namelabel"
@@ -141,7 +138,6 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/email"
         android:layout_below="@+id/email"
-        android:layout_marginTop="14dp"
         android:text="@string/create" />
 
 </RelativeLayout>

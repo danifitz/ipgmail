@@ -6,17 +6,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DecodeActivity" >
+    tools:context=".InboxActivity" >
 
-    <ListView
+    <uk.ac.brookes.danielf.pgpmail.internal.ScrollListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
-
-    </ListView>
+        android:layout_alignParentTop="true"
+        android:divider="#CDCDCD"
+        android:dividerHeight="2dp" />
 
 </RelativeLayout>

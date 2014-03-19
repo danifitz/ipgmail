@@ -4,18 +4,23 @@ import java.util.ArrayList;
 
 import uk.ac.brookes.danielf.pgpmail.internal.PGP;
 import uk.ac.brookes.danielf.pgpmail.internal.Settings;
+import uk.ac.brookes.danielf.pgpmail.intro.KeysIntroActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.uk.ac.brookes.danielf.pgpmail.R;
 
@@ -23,6 +28,7 @@ public class SettingsActivity extends Activity {
 
 	private Settings settings;
 	
+	private RelativeLayout layout;
 	private Spinner pgpModeSpinner;
 	private EditText smtpTxt;
 	private EditText imapTxt;
@@ -42,11 +48,43 @@ public class SettingsActivity extends Activity {
 		settings = new Settings(this);
 		
 		//find views by Id
-		pgpModeSpinner = (Spinner)  findViewById(R.id.pgpmode);
-		smtpTxt        = (EditText) findViewById(R.id.smtpserver);
-		imapTxt        = (EditText) findViewById(R.id.imapserver);
-		usernameTxt    = (EditText) findViewById(R.id.username);
-		passwordTxt    = (EditText) findViewById(R.id.password);
+		layout         = (RelativeLayout) findViewById(R.id.settings_layout);
+		pgpModeSpinner = (Spinner)        findViewById(R.id.pgpmode);
+		smtpTxt        = (EditText)       findViewById(R.id.smtpserver);
+		imapTxt        = (EditText)       findViewById(R.id.imapserver);
+		usernameTxt    = (EditText)       findViewById(R.id.username);
+		passwordTxt    = (EditText)       findViewById(R.id.password);
+		
+		/*
+		 * if this is the first run we want to add a next
+		 * button as this activity is part of a wider walkthrough
+		 * rather than just the normal settings screen
+		 */
+		Button nextBtn = new Button(this);
+		if(settings.getFirstRun())
+		{
+			nextBtn.setText("Next");
+			
+			//set layout params to place the button at the bottom right of the activity
+			RelativeLayout.LayoutParams l_params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			l_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+			l_params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+			
+			//set the layout params of the button and add the view
+			nextBtn.setLayoutParams(l_params);
+			layout.addView(nextBtn);
+		}
+		
+		nextBtn.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View arg0) {
+				Intent myIntent = new Intent(SettingsActivity.this, KeysIntroActivity.class);
+				SettingsActivity.this.startActivity(myIntent);
+			}
+			
+		});
 		
 		//fill the text boxes with settings
 		String imap = settings.getIMAPServer();
@@ -133,11 +171,7 @@ public class SettingsActivity extends Activity {
 			@Override
 			public void afterTextChanged(Editable text) {
 				String email = text.toString().toLowerCase();
-				if(email.contains("@"))
-					settings.setEmailUsername(email);
-				else
-					Toast.makeText(getApplicationContext(), "Invalid email address", 
-							Toast.LENGTH_SHORT).show();
+				settings.setEmailUsername(email);
 			}
 
 			@Override

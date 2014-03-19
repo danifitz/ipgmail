@@ -102,7 +102,7 @@ public class PGPPublicKeyRingDataSource {
 		return pubKeyRingList;
 	}
 	
-	private PGPPublicKeyRingModel cursorToPublicKeyRing(Cursor cursor) 
+	private PGPPublicKeyRingModel cursorToPublicKeyRing(Cursor cursor)
 			throws IOException, PGPException
 	{
 		Log.i(this.getClass().getCanonicalName(), "cursorToPublicKeyRing - entry");

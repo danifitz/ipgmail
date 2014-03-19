@@ -2,6 +2,7 @@ package uk.ac.brookes.danielf.pgpmail.crypto;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.security.Security;
 import java.util.Date;
 
 import org.spongycastle.bcpg.HashAlgorithmTags;
@@ -28,7 +29,6 @@ import org.spongycastle.openpgp.operator.bc.BcPGPKeyPair;
 import uk.ac.brookes.danielf.pgpmail.db.PGPPrivateKeyRingDataSource;
 import uk.ac.brookes.danielf.pgpmail.db.PGPPublicKeyRingDataSource;
 import android.content.Context;
-import android.util.Log;
 
 public class RSAKeyGenerator {
 
@@ -41,13 +41,11 @@ public class RSAKeyGenerator {
 		this.context = context;
 	}
 	
-	//TODO: generate keys based on settings i.e
-	//if the user has selected encrypt only option
-	//then only generate a keyring with encrypt subkeys
-	//or selected sign only, only generate subkeys for signing.
-	
 	public void generate(String id, char pass[], int keySize) throws Exception 
 	{
+		
+		Security.insertProviderAt(
+				new org.spongycastle.jce.provider.BouncyCastleProvider(), 1);
 		
 		PGPKeyRingGenerator krgen = generateKeyRingGenerator
 				(id, pass, keySize);
@@ -151,9 +149,9 @@ public class RSAKeyGenerator {
 				(new BcPBESecretKeyEncryptorBuilder
 						(PGPEncryptedData.AES_256, sha256Calc)).build(pass);
 		
-		// Finally, create the keyring itself. The constructor
-        // takes parameters that allow it to generate the self
-        // signature.
+		//Finally, create the keyring itself. The constructor
+        //takes parameters that allow it to generate the self
+        //signature.
 		PGPKeyRingGenerator keyRingGen =
 				new PGPKeyRingGenerator
 				(PGPSignature.POSITIVE_CERTIFICATION, rsakp_sign,

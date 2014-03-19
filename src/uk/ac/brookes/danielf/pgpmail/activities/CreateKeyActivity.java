@@ -3,10 +3,11 @@ package uk.ac.brookes.danielf.pgpmail.activities;
 import java.util.Date;
 
 import uk.ac.brookes.danielf.pgpmail.crypto.RSAKeyGenerator;
-import uk.ac.brookes.danielf.pgpmail.dialogs.ComposeEmailAlertDialog;
 import uk.ac.brookes.danielf.pgpmail.dialogs.ConfirmKeyDetailsDialog;
+import uk.ac.brookes.danielf.pgpmail.dialogs.PGDialogListener;
+import uk.ac.brookes.danielf.pgpmail.internal.Settings;
 import android.app.Activity;
-import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,8 +20,10 @@ import android.widget.Toast;
 
 import com.example.uk.ac.brookes.danielf.pgpmail.R;
 
-public class CreateKeyActivity extends Activity implements uk.ac.brookes.danielf.pgpmail.dialogs.ConfirmKeyDetailsDialog.NoticeDialogListener {
+public class CreateKeyActivity extends Activity implements PGDialogListener {
 
+	private final String LOG_TAG = "CREATE_KEY";
+	
 	private EditText    passphraseTxt;
 	private EditText    confirmTxt;
 	private RadioGroup  keySizes;   //default checked is ID = 1 or keySize = 1024
@@ -104,27 +107,20 @@ public class CreateKeyActivity extends Activity implements uk.ac.brookes.danielf
 		{
 			//get the key size
 			int keyId = keySizes.getCheckedRadioButtonId();
-			switch(keyId)
-			{
-				case -1:
-					//no selection
-					Toast.makeText(getApplicationContext(), "Please select a key size", Toast.LENGTH_SHORT).show();
-					return false; //lets not continue if there is no key size
-				case R.id.small:
-					//512 bit key
-					keySize = 512;
-					break;
-				case R.id.medium:
-					//1024 bit key
-					keySize = 1024;
-					break;
-				case R.id.large:
-					//2048 bit key
-					keySize = 2048;
-					break;
-				default:
-					//do nothing
-					break;
+			if (keyId == -1) {
+				//no selection
+				Toast.makeText(getApplicationContext(), "Please select a key size", Toast.LENGTH_SHORT).show();
+				return false; //lets not continue if there is no key size
+			} else if (keyId == R.id.smallest) {
+				//512 bit key
+				keySize = 512;
+			} else if (keyId == R.id.mediumer) {
+				//1024 bit key
+				keySize = 1024;
+			} else if (keyId == R.id.larger) {
+				//2048 bit key
+				keySize = 2048;
+			} else {
 			}
 			
 			//do the passphrases match?
@@ -151,13 +147,12 @@ public class CreateKeyActivity extends Activity implements uk.ac.brookes.danielf
 	private void showConfirmationDialog(int keyLength, String expiry, String name, String email)
 	{
 		// Create an instance of the confirm dialog and show it
-        DialogFragment dialog = new ConfirmKeyDetailsDialog(keyLength, expiry, name, email);
-        dialog.show(getFragmentManager(), "ConfirmKeyDetailsDialog");
+		ConfirmKeyDetailsDialog ckdd = ConfirmKeyDetailsDialog.newInstance(keyLength, expiry, name, email);
+		ckdd.show(getFragmentManager(), ConfirmKeyDetailsDialog.TAG);
 	}
 
 	@Override
-	public void onDialogPositiveClick(DialogFragment dialog) {
-
+	public void onDialogDone(String tag, String pass, long keyId) {
 		RSAKeyGenerator rsaGen = new RSAKeyGenerator(this);
 		try {
 			rsaGen.generate(id, passphrase.toCharArray(), keySize);
@@ -166,15 +161,23 @@ public class CreateKeyActivity extends Activity implements uk.ac.brookes.danielf
 			e.printStackTrace();
 		}
 		
-		Log.i("CreateKeyActivity", "attempting to create key");
+		Log.i(LOG_TAG, "attempting to create key");
 		
+		//if this is part of the first run dialog then head to the menu
+		Settings settings = new Settings(getApplicationContext());
+		if(settings.getFirstRun())
+		{
+			/*
+			 * this is the end of the first run walkthrough
+			 * so set first run to false
+			 */
+			settings.setFirstRun(false);
+			
+			//head to the menu
+			Intent myIntent = new Intent(this, MenuActivity.class);
+			this.startActivity(myIntent);
+		}
 		//this activity is over so let's finish and return to the previous activity
 		super.finish();
 	}
-
-	@Override
-	public void onDialogNegativeClick(DialogFragment dialog) {
-		//do nothing
-	}
-
 }

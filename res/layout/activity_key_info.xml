@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:textStyle="bold"
         android:text="@string/keyid" />
 
     <TextView
@@ -42,6 +43,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignLeft="@+id/algorithm"
         android:layout_below="@+id/algorithm"
+        android:textStyle="bold"
         android:text="@string/keyleng" />
 
     <TextView
@@ -59,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/keylength"
         android:layout_below="@+id/keylength"
+        android:textStyle="bold"
         android:text="@string/created" />
 
     <TextView
@@ -78,6 +81,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/created"
+        android:textStyle="bold"
         android:text="@string/expiryinfo" />
 
     <TextView
@@ -95,6 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/keyid"
         android:layout_below="@+id/keyid"
+        android:textStyle="bold"
         android:text="@string/algorithm" />
 
     <TextView
@@ -103,6 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/expiry"
         android:layout_below="@+id/expiry"
+        android:textStyle="bold"
         android:text="@string/trustlvl" />
 
     <TextView
@@ -113,5 +119,51 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/trustleveltag"
         android:text="" />
+
+    <Button
+        android:id="@+id/decryptBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/revokebutton" />
+
+    <Button
+        android:id="@+id/sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/decryptBtn"
+        android:layout_alignLeft="@+id/decryptBtn"
+        android:layout_alignRight="@+id/decryptBtn"
+        android:text="@string/signbutton" />
+
+    <TextView
+        android:id="@+id/keytypelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/trustlevel"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/trustlevel"
+        android:textStyle="bold"
+        android:text="@string/typekey" />
+
+    <TextView
+        android:id="@+id/keytype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/keytypelabel"
+        android:layout_below="@+id/keytypelabel"
+        android:text="" />
+
+    <Button
+        android:id="@+id/export"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sign"
+        android:layout_alignLeft="@+id/sign"
+        android:layout_alignRight="@+id/sign"
+        android:text="@string/exportkey" />
 
 </RelativeLayout>

@@ -24,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/createkey"
         android:layout_below="@+id/keyswitch"
-        android:layout_centerHorizontal="true" >
+        android:layout_centerHorizontal="true"
+        android:divider="#CDCDCD"
+        android:dividerHeight="2dp" >
 
     </ListView>
 

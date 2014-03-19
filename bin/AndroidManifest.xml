@@ -10,7 +10,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-        
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -18,43 +19,54 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.MenuActivity"
-            android:label="@string/title_activity_menu" >
+            android:label="@string/title_activity_menu"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.ComposeActivity"
-            android:label="@string/title_activity_compose" >
+            android:label="@string/title_activity_compose"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="uk.ac.brookes.danielf.pgpmail.activities.DecodeActivity"
-            android:label="@string/title_activity_decode" >
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.InboxActivity"
+            android:label="@string/title_activity_decode"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.ManageKeysActivity"
-            android:label="@string/title_activity_manage_keys" >
+            android:label="@string/title_activity_manage_keys"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.ListKeys"
-            android:label="@string/title_activity_list_keys" >
+            android:label="@string/title_activity_list_keys"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.KeyInfo"
-            android:label="@string/title_activity_key_info" >
+            android:label="@string/title_activity_key_info"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.CreateKeyActivity"
-            android:label="@string/title_activity_create_key" >
+            android:label="@string/title_activity_create_key"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.ImportKeysActivity"
-            android:label="@string/title_activity_import_keys" >
+            android:label="@string/title_activity_import_keys"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.InitializeActivity"
-            android:label="@string/title_activity_initialize" >
+            android:noHistory="true"
+            android:label="@string/title_activity_initialize"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,7 +75,27 @@
         </activity>
         <activity
             android:name="uk.ac.brookes.danielf.pgpmail.activities.DisplayMessageActivity"
-            android:label="@string/title_activity_display_message" >
+            android:label="@string/title_activity_display_message"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="ar.com.daidalos.afiledialog.FileChooserActivity"
+            android:label="title_activity_file_picker"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.intro.IntroActivity"
+            android:label="@string/title_activity_intro"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.intro.KeysIntroActivity"
+            android:label="@string/title_activity_keys_intro"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.brookes.danielf.pgpmail.activities.DecodeVerify"
+            android:label="@string/title_activity_decode_verify" >
         </activity>
     </application>
 

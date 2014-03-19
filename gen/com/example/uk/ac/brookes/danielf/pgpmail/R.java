@@ -11,11 +11,17 @@ public final class R {
     public static final class array {
         /**  Menu strings 
          */
-        public static final int main_menu_options=0x7f060000;
-        public static final int privatearray=0x7f060002;
-        public static final int publicarray=0x7f060001;
+        public static final int main_menu_options=0x7f070000;
     }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int daidalos_active_file=0x7f050002;
+        public static final int daidalos_backgroud=0x7f050001;
+        public static final int daidalos_gray=0x7f050000;
+        public static final int daidalos_inactive_file=0x7f050003;
+        public static final int initialize=0x7f050004;
+        public static final int initprog=0x7f050005;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -24,203 +30,294 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int add=0x7f020000;
+        public static final int document=0x7f020001;
+        public static final int document_gray=0x7f020002;
+        public static final int folder=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int no=0x7f020005;
+        public static final int tick=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f090054;
-        public static final int algorithm=0x7f090029;
-        public static final int algorithmtag=0x7f09002a;
-        public static final int body_preview=0x7f090043;
-        public static final int button1=0x7f09001f;
-        public static final int checkBox_id=0x7f090042;
-        public static final int compose=0x7f090004;
-        public static final int composebody=0x7f090005;
-        public static final int confirm=0x7f09000a;
-        public static final int confirmlabel=0x7f090009;
-        public static final int createbtn=0x7f090016;
-        public static final int created=0x7f09002e;
-        public static final int createdtag=0x7f09002d;
-        public static final int createkey=0x7f090036;
-        public static final int email=0x7f090015;
-        public static final int emailconf=0x7f09004b;
-        public static final int emaillabel=0x7f090014;
-        public static final int emailtag=0x7f09004a;
-        public static final int expir=0x7f090047;
-        public static final int expiration=0x7f090011;
-        public static final int expirationlabel=0x7f090010;
-        public static final int expirtag=0x7f090046;
-        public static final int expiry=0x7f090030;
-        public static final int expirytag=0x7f09002f;
-        public static final int from_address=0x7f090041;
-        public static final int imapserver=0x7f09003c;
-        public static final int imaptag=0x7f09003b;
-        public static final int initializing=0x7f090026;
-        public static final int keyid=0x7f090028;
-        public static final int keyidentity=0x7f09004d;
-        public static final int keyidtag=0x7f090027;
-        public static final int keyinfo=0x7f09004e;
-        public static final int keyleng=0x7f090045;
-        public static final int keylengtag=0x7f090044;
-        public static final int keylength=0x7f09002c;
-        public static final int keylengthtag=0x7f09002b;
-        public static final int keylist=0x7f090033;
-        public static final int keysizegroup=0x7f09000c;
-        public static final int keysizelabel=0x7f09000b;
-        public static final int keysview=0x7f090035;
-        public static final int keyswitch=0x7f090034;
-        public static final int large=0x7f09000f;
-        public static final int line1=0x7f09001a;
-        public static final int line2=0x7f09001d;
-        public static final int listView=0x7f090017;
-        public static final int medium=0x7f09000d;
-        public static final int menu=0x7f090037;
-        public static final int messageBody=0x7f09001e;
-        public static final int messageDate=0x7f09001c;
-        public static final int messageFrom=0x7f090018;
-        public static final int messageSubject=0x7f09001b;
-        public static final int messageTo=0x7f090019;
-        public static final int msg=0x7f09004c;
-        public static final int name=0x7f090013;
-        public static final int nameconf=0x7f090049;
-        public static final int namelabel=0x7f090012;
-        public static final int nametag=0x7f090048;
-        public static final int passconftag=0x7f090051;
-        public static final int passconftxt=0x7f090052;
-        public static final int passlabel=0x7f090007;
-        public static final int passphrase=0x7f090008;
-        public static final int passtag=0x7f090050;
-        public static final int passtxt=0x7f09004f;
-        public static final int password=0x7f09003e;
-        public static final int pgpmode=0x7f090038;
-        public static final int progressBar1=0x7f090025;
-        public static final int results=0x7f090024;
-        public static final int resultslabel=0x7f090023;
-        public static final int search=0x7f090020;
-        public static final int selectprivate=0x7f090000;
-        public static final int selectpublic=0x7f090001;
-        public static final int send=0x7f090006;
-        public static final int server=0x7f090021;
-        public static final int serveruri=0x7f090022;
-        public static final int sig=0x7f090053;
-        public static final int small=0x7f09000e;
-        public static final int smtpserver=0x7f09003a;
-        public static final int smtptag=0x7f090039;
-        public static final int subject=0x7f090002;
-        public static final int subjecttxt=0x7f090003;
-        public static final int textView2=0x7f090040;
-        public static final int trustlevel=0x7f090032;
-        public static final int trustleveltag=0x7f090031;
-        public static final int username=0x7f09003d;
-        public static final int usernametag=0x7f09003f;
+        public static final int action_settings=0x7f0a0073;
+        public static final int actionbtn=0x7f0a001d;
+        public static final int algorithm=0x7f0a0034;
+        public static final int algorithmtag=0x7f0a0035;
+        public static final int attachbutton=0x7f0a0007;
+        public static final int attachments=0x7f0a0024;
+        public static final int body_preview=0x7f0a005d;
+        public static final int buttonAdd=0x7f0a0058;
+        public static final int buttonOk=0x7f0a0059;
+        public static final int choose=0x7f0a001b;
+        public static final int compose=0x7f0a0004;
+        public static final int composebody=0x7f0a0005;
+        public static final int confirm=0x7f0a000b;
+        public static final int confirmlabel=0x7f0a000a;
+        public static final int createbtn=0x7f0a0018;
+        public static final int created=0x7f0a0039;
+        public static final int createdtag=0x7f0a0038;
+        public static final int createkey=0x7f0a0048;
+        public static final int datetxt=0x7f0a0069;
+        public static final int decintro=0x7f0a001a;
+        public static final int decryptBtn=0x7f0a0027;
+        public static final int email=0x7f0a0017;
+        public static final int emailconf=0x7f0a0065;
+        public static final int emaillabel=0x7f0a0016;
+        public static final int emailtag=0x7f0a0064;
+        public static final int expir=0x7f0a0061;
+        public static final int expiration=0x7f0a0013;
+        public static final int expirationlabel=0x7f0a0012;
+        public static final int expirtag=0x7f0a0060;
+        public static final int expiry=0x7f0a003b;
+        public static final int expirytag=0x7f0a003a;
+        public static final int export=0x7f0a0041;
+        public static final int filepath=0x7f0a001c;
+        public static final int from_address=0x7f0a005c;
+        public static final int imageView1=0x7f0a002d;
+        public static final int imageViewIcon=0x7f0a005a;
+        public static final int imapserver=0x7f0a004f;
+        public static final int imaptag=0x7f0a004e;
+        public static final int introtxt=0x7f0a002f;
+        public static final int keyid=0x7f0a0033;
+        public static final int keyidentity=0x7f0a006c;
+        public static final int keyidtag=0x7f0a0032;
+        public static final int keyidtxt=0x7f0a0068;
+        public static final int keyinfo=0x7f0a006d;
+        public static final int keyintrotag=0x7f0a0044;
+        public static final int keyleng=0x7f0a005f;
+        public static final int keylengtag=0x7f0a005e;
+        public static final int keylength=0x7f0a0037;
+        public static final int keylengthtag=0x7f0a0036;
+        public static final int keylist=0x7f0a0045;
+        public static final int keylist1=0x7f0a006b;
+        public static final int keysizegroup=0x7f0a000d;
+        public static final int keysizelabel=0x7f0a000c;
+        public static final int keysview=0x7f0a0047;
+        public static final int keyswitch=0x7f0a0046;
+        public static final int keytype=0x7f0a0040;
+        public static final int keytypelabel=0x7f0a003f;
+        public static final int larger=0x7f0a0011;
+        public static final int line1=0x7f0a0020;
+        public static final int line2=0x7f0a0023;
+        public static final int line3=0x7f0a0025;
+        public static final int linearLayoutButtons=0x7f0a0057;
+        public static final int linearLayoutFiles=0x7f0a0056;
+        public static final int listView=0x7f0a0019;
+        public static final int medium=0x7f0a000e;
+        public static final int mediumer=0x7f0a0010;
+        public static final int menu=0x7f0a0049;
+        public static final int messageBody=0x7f0a0026;
+        public static final int messageDate=0x7f0a0022;
+        public static final int messageFrom=0x7f0a001e;
+        public static final int messageSubject=0x7f0a0021;
+        public static final int messageTo=0x7f0a001f;
+        public static final int msg=0x7f0a0066;
+        public static final int name=0x7f0a0015;
+        public static final int nameconf=0x7f0a0063;
+        public static final int namelabel=0x7f0a0014;
+        public static final int nametag=0x7f0a0062;
+        public static final int next2=0x7f0a0043;
+        public static final int nextbtn=0x7f0a0030;
+        public static final int passconftag=0x7f0a0070;
+        public static final int passconftxt=0x7f0a0071;
+        public static final int passlabel=0x7f0a0008;
+        public static final int passphrase=0x7f0a0009;
+        public static final int passtag=0x7f0a006f;
+        public static final int passtxt=0x7f0a006e;
+        public static final int password=0x7f0a0051;
+        public static final int pgpmode=0x7f0a004b;
+        public static final int progressBar1=0x7f0a002c;
+        public static final int results=0x7f0a002a;
+        public static final int resultslabel=0x7f0a0028;
+        public static final int rootLayout=0x7f0a0054;
+        public static final int scrollView1=0x7f0a0055;
+        public static final int search=0x7f0a0029;
+        public static final int searchbtn=0x7f0a002b;
+        public static final int selectprivate=0x7f0a0000;
+        public static final int selectpublic=0x7f0a0001;
+        public static final int send=0x7f0a0006;
+        public static final int settings_layout=0x7f0a004a;
+        public static final int sign=0x7f0a003e;
+        public static final int smallest=0x7f0a000f;
+        public static final int smtpserver=0x7f0a004d;
+        public static final int smtptag=0x7f0a004c;
+        public static final int step1txt=0x7f0a0031;
+        public static final int subject=0x7f0a0002;
+        public static final int subjecttxt=0x7f0a0003;
+        public static final int textView2=0x7f0a0053;
+        public static final int textViewLabel=0x7f0a005b;
+        public static final int trustlevel=0x7f0a003d;
+        public static final int trustleveltag=0x7f0a003c;
+        public static final int typetxt=0x7f0a0067;
+        public static final int useridtxt=0x7f0a006a;
+        public static final int username=0x7f0a0050;
+        public static final int usernametag=0x7f0a0052;
+        public static final int warning=0x7f0a0072;
+        public static final int welcometag=0x7f0a0042;
+        public static final int welcometxt=0x7f0a002e;
     }
     public static final class layout {
         public static final int activity_compose=0x7f030000;
         public static final int activity_create_key=0x7f030001;
         public static final int activity_decode=0x7f030002;
-        public static final int activity_display_message=0x7f030003;
-        public static final int activity_import_keys=0x7f030004;
-        public static final int activity_initialize=0x7f030005;
-        public static final int activity_key_info=0x7f030006;
-        public static final int activity_list_keys=0x7f030007;
-        public static final int activity_manage_keys=0x7f030008;
-        public static final int activity_menu=0x7f030009;
-        public static final int activity_settings=0x7f03000a;
-        public static final int email_folder_row=0x7f03000b;
-        public static final int key_info_dialog=0x7f03000c;
-        public static final int pgp_key_row=0x7f03000d;
-        public static final int secret_key_passphrase_dialog=0x7f03000e;
-        public static final int sig_verification=0x7f03000f;
+        public static final int activity_decode_verify=0x7f030003;
+        public static final int activity_display_message=0x7f030004;
+        public static final int activity_import_keys=0x7f030005;
+        public static final int activity_initialize=0x7f030006;
+        public static final int activity_intro=0x7f030007;
+        public static final int activity_key_info=0x7f030008;
+        public static final int activity_keys_intro=0x7f030009;
+        public static final int activity_list_keys=0x7f03000a;
+        public static final int activity_manage_keys=0x7f03000b;
+        public static final int activity_menu=0x7f03000c;
+        public static final int activity_settings=0x7f03000d;
+        public static final int daidalos_file_chooser=0x7f03000e;
+        public static final int daidalos_file_item=0x7f03000f;
+        public static final int email_folder_row=0x7f030010;
+        public static final int key_info_dialog=0x7f030011;
+        public static final int key_picker_dialog=0x7f030012;
+        public static final int key_search_result_row=0x7f030013;
+        public static final int list_keys_dialog=0x7f030014;
+        public static final int pgp_key_row=0x7f030015;
+        public static final int secret_key_passphrase_dialog=0x7f030016;
+        public static final int subject_alert_dialog=0x7f030017;
     }
     public static final class menu {
-        public static final int compose=0x7f080000;
-        public static final int create_key=0x7f080001;
-        public static final int decode=0x7f080002;
-        public static final int display_message=0x7f080003;
-        public static final int import_keys=0x7f080004;
-        public static final int initialize=0x7f080005;
-        public static final int key_info=0x7f080006;
-        public static final int list_keys=0x7f080007;
-        public static final int main=0x7f080008;
-        public static final int manage_keys=0x7f080009;
-        public static final int menu=0x7f08000a;
-        public static final int settings=0x7f08000b;
+        public static final int compose=0x7f090000;
+        public static final int create_key=0x7f090001;
+        public static final int decode=0x7f090002;
+        public static final int decode_verify=0x7f090003;
+        public static final int display_message=0x7f090004;
+        public static final int import_keys=0x7f090005;
+        public static final int initialize=0x7f090006;
+        public static final int intro=0x7f090007;
+        public static final int key_info=0x7f090008;
+        public static final int keys_intro=0x7f090009;
+        public static final int list_keys=0x7f09000a;
+        public static final int main=0x7f09000b;
+        public static final int manage_keys=0x7f09000c;
+        public static final int menu=0x7f09000d;
+        public static final int settings=0x7f09000e;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int algorithm=0x7f050026;
+        public static final int action=0x7f040058;
+        public static final int action_settings=0x7f040012;
+        public static final int algorithm=0x7f04003a;
         /**  Main strings 
          */
-        public static final int app_name=0x7f050000;
-        public static final int cancel=0x7f050034;
-        public static final int compose=0x7f050014;
-        public static final int confirm=0x7f05001b;
-        public static final int confmsg=0x7f05002b;
-        public static final int create=0x7f050023;
-        public static final int created=0x7f050028;
-        public static final int createkeys=0x7f05000d;
+        public static final int app_name=0x7f040011;
+        public static final int attachment=0x7f04002b;
+        public static final int cancel=0x7f04004b;
+        public static final int choosebtn=0x7f040057;
+        public static final int compose=0x7f040028;
+        public static final int confirm=0x7f04002d;
+        public static final int confmsg=0x7f040041;
+        public static final int create=0x7f040035;
+        public static final int created=0x7f04003c;
+        public static final int createkeys=0x7f040022;
+        public static final int daidalos_accept=0x7f040008;
+        public static final int daidalos_app_name=0x7f040001;
+        public static final int daidalos_cancel=0x7f040003;
+        public static final int daidalos_confirm_create_file=0x7f04000e;
+        public static final int daidalos_confirm_create_folder=0x7f040010;
+        public static final int daidalos_confirm_select_file=0x7f04000d;
+        public static final int daidalos_confirm_select_folder=0x7f04000f;
+        public static final int daidalos_create_file=0x7f040006;
+        public static final int daidalos_create_folder=0x7f040007;
+        public static final int daidalos_enter_file_name=0x7f040009;
+        public static final int daidalos_enter_folder_name=0x7f04000a;
+        public static final int daidalos_hello=0x7f040000;
+        public static final int daidalos_new_file=0x7f040005;
+        public static final int daidalos_no=0x7f04000c;
+        public static final int daidalos_ok=0x7f040004;
+        public static final int daidalos_select=0x7f040002;
+        public static final int daidalos_yes=0x7f04000b;
+        public static final int decodeintro=0x7f040056;
         /**  Display Message activity 
          */
-        public static final int decrypt=0x7f05002d;
-        public static final int email=0x7f05001f;
-        public static final int expiration=0x7f05001d;
-        public static final int expiryinfo=0x7f050029;
+        public static final int decrypt=0x7f040044;
+        public static final int email=0x7f040031;
+        public static final int expiration=0x7f04002f;
+        public static final int expiryinfo=0x7f04003d;
+        public static final int exportkey=0x7f040043;
         /**  Compose strings 
          */
-        public static final int from=0x7f050010;
-        public static final int hello_world=0x7f050002;
-        public static final int imap=0x7f050030;
+        public static final int from=0x7f040024;
+        public static final int hello_world=0x7f040013;
+        public static final int imap=0x7f040047;
+        public static final int intro=0x7f040051;
         /**  Key Info strings 
          */
-        public static final int keyid=0x7f050025;
-        public static final int keyleng=0x7f050027;
-        public static final int keylength=0x7f05001c;
-        public static final int large=0x7f050022;
-        public static final int medium=0x7f050021;
+        public static final int keyid=0x7f040039;
+        public static final int keyleng=0x7f04003b;
+        public static final int keylength=0x7f04002e;
+        public static final int keypick=0x7f040059;
+        public static final int largeish=0x7f040034;
+        public static final int mediumish=0x7f040033;
         /**  Compose Email Alert Dialog Strings 
          */
-        public static final int message=0x7f050033;
-        public static final int name=0x7f05001e;
+        public static final int message=0x7f04004a;
+        public static final int name=0x7f040030;
+        public static final int nextbtn=0x7f04004f;
         /**  Create keys strings 
          */
-        public static final int pass=0x7f05001a;
-        public static final int passwurd=0x7f050032;
+        public static final int pass=0x7f04002c;
+        public static final int passwurd=0x7f040049;
+        public static final int revokebutton=0x7f040040;
+        public static final int searchbutton=0x7f040037;
         /**  Import key strings 
          */
-        public static final int searchresults=0x7f050024;
-        public static final int selectprivatekey=0x7f050012;
-        public static final int selectpublickey=0x7f050013;
-        public static final int send=0x7f050015;
-        public static final int server=0x7f05000e;
-        public static final int serverpath=0x7f05000f;
-        public static final int small=0x7f050020;
+        public static final int searchresults=0x7f040036;
+        public static final int selectprivatekey=0x7f040026;
+        public static final int selectpublickey=0x7f040027;
+        public static final int send=0x7f040029;
+        public static final int server=0x7f040023;
+        public static final int signbutton=0x7f04003f;
+        public static final int smallish=0x7f040032;
         /**  Settings strings 
          */
-        public static final int smtp=0x7f05002f;
-        public static final int subject=0x7f050016;
-        public static final int switchoff=0x7f05000c;
-        public static final int switchon=0x7f05000b;
+        public static final int smtp=0x7f040046;
+        public static final int step1=0x7f040052;
+        /**  Intro page 2 strings 
+         */
+        public static final int step2=0x7f040053;
+        public static final int subject=0x7f04002a;
+        public static final int subjectwarn=0x7f04004d;
+        public static final int suggestion=0x7f040038;
+        public static final int switchoff=0x7f040021;
+        public static final int switchon=0x7f040020;
         /**  ManageKeys strings 
          */
-        public static final int switchtext=0x7f05000a;
-        public static final int title_activity_compose=0x7f050005;
-        public static final int title_activity_create_key=0x7f050019;
-        public static final int title_activity_decode=0x7f050006;
-        public static final int title_activity_display_message=0x7f05002c;
-        public static final int title_activity_import_keys=0x7f050009;
-        public static final int title_activity_initialize=0x7f050008;
-        public static final int title_activity_key_info=0x7f050018;
-        public static final int title_activity_list_keys=0x7f050017;
-        public static final int title_activity_manage_keys=0x7f050007;
-        public static final int title_activity_menu=0x7f050003;
-        public static final int title_activity_settings=0x7f050004;
-        public static final int to=0x7f050011;
-        public static final int trustlvl=0x7f05002a;
-        public static final int user=0x7f050031;
-        public static final int verify=0x7f05002e;
+        public static final int switchtext=0x7f04001f;
+        public static final int title_activity_compose=0x7f040016;
+        public static final int title_activity_create_key=0x7f04001b;
+        public static final int title_activity_decode=0x7f040017;
+        public static final int title_activity_decode_verify=0x7f040055;
+        public static final int title_activity_display_message=0x7f04001e;
+        /**  File dialog strings 
+         */
+        public static final int title_activity_file_picker=0x7f04004c;
+        public static final int title_activity_import_keys=0x7f04001a;
+        public static final int title_activity_initialize=0x7f040019;
+        /**  Intro page 1 strings 
+         */
+        public static final int title_activity_intro=0x7f04004e;
+        public static final int title_activity_key_info=0x7f04001d;
+        public static final int title_activity_keys_intro=0x7f040054;
+        public static final int title_activity_list_keys=0x7f04001c;
+        public static final int title_activity_manage_keys=0x7f040018;
+        public static final int title_activity_menu=0x7f040014;
+        public static final int title_activity_settings=0x7f040015;
+        public static final int to=0x7f040025;
+        public static final int trustlvl=0x7f04003e;
+        public static final int typekey=0x7f040042;
+        public static final int user=0x7f040048;
+        public static final int verify=0x7f040045;
+        public static final int welcome=0x7f040050;
     }
     public static final class style {
         /** 
@@ -244,10 +341,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
     }
 }

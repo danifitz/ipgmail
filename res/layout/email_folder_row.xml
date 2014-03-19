@@ -9,35 +9,29 @@
         android:id="@+id/from_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/checkBox_id"
-        android:layout_alignBottom="@+id/checkBox_id"
-        android:layout_toRightOf="@+id/checkBox_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:text="dan@dan.com"
-        android:textStyle="bold"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/body_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/subject"
+        android:layout_alignRight="@+id/subject"
         android:layout_below="@+id/subject"
         android:text="Hi Dan, you  have an appointment..."
         android:textSize="12sp" />
-
-    <CheckBox
-        android:id="@+id/checkBox_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:paddingRight="20dip" />
 
     <TextView
         android:id="@+id/subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/from_address"
+        android:layout_alignRight="@+id/from_address"
         android:layout_below="@+id/from_address"
         android:text="your appointment"
         android:textSize="14sp" />

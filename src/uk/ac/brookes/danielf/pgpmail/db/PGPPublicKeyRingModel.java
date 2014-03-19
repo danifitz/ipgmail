@@ -1,7 +1,6 @@
 package uk.ac.brookes.danielf.pgpmail.db;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 import org.spongycastle.openpgp.PGPPublicKeyRing;
 import org.spongycastle.openpgp.operator.jcajce.JcaKeyFingerprintCalculator;
@@ -13,14 +12,8 @@ import org.spongycastle.openpgp.operator.jcajce.JcaKeyFingerprintCalculator;
  * @author danfitzgerald
  *
  */
-public class PGPPublicKeyRingModel extends PGPPublicKeyRing implements Serializable {
+public class PGPPublicKeyRingModel extends PGPPublicKeyRing {
 
-	/*
-	 * TODO: implement Parcelable rather than Serializable
-	 * and figure out how to fill out the two methods
-	 */
-	
-	private static final long serialVersionUID = -1733683017885841855L;
 	private long id;
 	private byte[] publicKeyRingBlob;
 	

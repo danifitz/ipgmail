@@ -2,23 +2,28 @@
 <resources>
 
     <!-- Main strings -->
-    <string name="app_name">uk.ac.brookes.danielf.pgpmail</string>
+    <string name="app_name">seCURE Mail</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_menu">Main Menu</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_compose">Compose a message</string>
     <string name="title_activity_decode">View a message</string>
-    <string name="title_activity_manage_keys">Manage Keys</string>
+    <string name="title_activity_manage_keys">Manage Keyrings</string>
     <string name="title_activity_initialize">Initialize</string>
     <string name="title_activity_import_keys">Import Keys</string>
+    <string name="title_activity_create_key">Create a keypair</string>
+    <string name="title_activity_list_keys">List Keys</string>
+    <string name="title_activity_key_info">Key Details</string>
+    <string name="title_activity_display_message">View Message</string>
 
     <!-- Menu strings -->
     <string-array name="main_menu_options">
         <item>Compose</item>
-        <item>Decode</item>
+        <item>Inbox</item>
+        <item>Decode/Verify Files</item>
+        <item>Manage Keyrings</item>
         <item>Settings</item>
-        <item>Manage Keys</item>
     </string-array>
 
     <!-- ManageKeys strings -->
@@ -27,7 +32,6 @@
     <string name="switchoff">Private</string>
     <string name="createkeys">Create keys</string>
     <string name="server">Key Server:</string>
-    <string name="serverpath">pgp.mit.edu:11371</string>
 
     <!-- Compose strings -->
     <string name="from">From: </string>
@@ -37,20 +41,7 @@
     <string name="compose">Compose message: </string>
     <string name="send">Send</string>
     <string name="subject">Subject: </string>
-    <string name="title_activity_list_keys">ListKeys</string>
-    <string name="title_activity_key_info">KeyInfo</string>
-    <string name="title_activity_create_key">CreateKeyActivity</string>
-
-    <string-array name="publicarray">
-        <item>Daniel</item>
-        <item>Faye</item>
-        <item>Aaron</item>
-    </string-array>
-    <string-array name="privatearray">
-        <item>Daniel</item>
-        <item>Faye</item>
-        <item>Aaron</item>
-    </string-array>
+    <string name="attachment">Add attachment</string>
 
     <!-- Create keys strings -->
     <string name="pass">Passphrase:</string>
@@ -59,13 +50,15 @@
     <string name="expiration">Expiration:</string>
     <string name="name">Name:</string>
     <string name="email">Email:</string>
-    <string name="small">512</string>
-    <string name="medium">1024</string>
-    <string name="large">2048</string>
+    <string name="smallish">512</string>
+    <string name="mediumish">1024</string>
+    <string name="largeish">2048</string>
     <string name="create">Create</string>
 
     <!-- Import key strings -->
     <string name="searchresults">Search Results:</string>
+    <string name="searchbutton">Search</string>
+    <string name="suggestion">Enter a name or key ID</string>
 
     <!-- Key Info strings -->
     <string name="keyid">Key ID:</string>
@@ -74,22 +67,67 @@
     <string name="created">Created:</string>
     <string name="expiryinfo">Expiration:</string>
     <string name="trustlvl">Trust Level:</string>
+    <string name="signbutton">Certify this Keyring</string>
+    <string name="revokebutton">Revoke Keyring</string>
     <string name="confmsg">Do you wish to continue?</string>
-    <string name="title_activity_display_message">DisplayMessageActivity</string>
-    
+    <string name="typekey">Key Type:</string>
+    <string name="exportkey">Export this keyring</string>
+
     <!-- Display Message activity -->
     <string name="decrypt">Decrypt</string>
     <string name="verify">Verify</string>
-    
+
     <!-- Settings strings -->
     <string name="smtp">SMTP Server:</string>
     <string name="imap">IMAP Server:</string>
     <string name="user">Username:</string>
     <string name="passwurd">Password:</string>
-    
+
     <!-- Compose Email Alert Dialog Strings -->
     <string name="message">Send email without a subject?</string>
     <string name="cancel">Cancel</string>
-	
+
+    <!-- File dialog strings -->
+    <string name="title_activity_file_picker">Choose an attachment</string>
+    <string name="subjectwarn">Are you sure you want to send an email without a subject?</string>
+
+    <!-- Intro page 1 strings -->
+    <string name="title_activity_intro">seCURE Mail</string>
+    <string name="nextbtn">Next</string>
+    <string name="welcome">Welcome to seCURE Mail</string>
+    <string name="intro">        seCURE Mail is an email client for secure communications.
+        It uses public-key encryption and digital signatures
+        to ensure your emails stay private and helps you
+        to positively verify the identity of the people 
+        you stay in touch with.</string>
+    <string name="step1">        Before you get started I need to know some details
+        about the email account you wish to use with this
+        application. If you do not have an email account
+        please set one up before you proceed.</string>
+
+    <!-- Intro page 2 strings -->
+    <string name="step2">        Now you have told me your email settings we need to generate
+        a keypair. We will create a pair of keys, public and private.
+        Some very clever people discovered that you can create 2
+        numbers that have a unique relationship. You can use one to
+        hide the meaning of a message and the other to reveal it again.
+        Your outgoing messages are encrypted with the recipients public
+        key and only they can decrypt it with their private key.
+        Digital signatures work slightly differently but we are
+        still using public-private keys.</string>
+    <string name="title_activity_keys_intro">Creating a key</string>
+    <string name="title_activity_decode_verify">Decode/Verify a file</string>
+    
+    <string name="decodeintro">
+        Decode or verify a file. You can decrypt or verify a signed
+        file. Use this activity to work with files you have been sent
+        as attachments.
+    </string>
+    <string name="choosebtn">Choose a file</string>
+    <string name="action">Decode/Verify</string>
+    
+    <string name="keypick">Select a key to perform the chosen action</string>
+    <color name="initialize">#FF4384FF</color>
+    <color name="initprog">#FF004CDB</color>
 
 </resources>

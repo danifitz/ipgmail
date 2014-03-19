@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:entries="@array/privatearray"
         android:prompt="@string/from" />
 
     <Spinner
@@ -23,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/selectprivate"
         android:layout_below="@+id/selectprivate"
-        android:entries="@array/publicarray"
         android:prompt="@string/to" />
 
     <TextView
@@ -69,5 +67,14 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="@string/send" />
+
+    <Button
+        android:id="@+id/attachbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/send"
+        android:layout_alignBottom="@+id/send"
+        android:layout_alignLeft="@+id/composebody"
+        android:text="@string/attachment" />
     
 </RelativeLayout>

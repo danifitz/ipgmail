@@ -1,26 +1,18 @@
 package uk.ac.brookes.danielf.pgpmail.db;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 import org.spongycastle.openpgp.PGPException;
 import org.spongycastle.openpgp.PGPSecretKeyRing;
 import org.spongycastle.openpgp.operator.jcajce.JcaKeyFingerprintCalculator;
 
 /**
- * Model to represent private key in the DB. Serializable so we easily
- * pass this object between android activities.
+ * Model to represent private key in the DB.
  * @author danfitzgerald
  *
  */
-public class PGPPrivateKeyRingModel extends PGPSecretKeyRing implements Serializable {
+public class PGPPrivateKeyRingModel extends PGPSecretKeyRing {
 
-	/*
-	 * TODO: implement Parcelable rather than Serializable
-	 * and figure out how to fill out the two methods
-	 */
-	
-	private static final long serialVersionUID = -4754018016657220126L;
 	private long id;
 	private byte[] privateKeyRingBlob;
 	
@@ -43,8 +35,8 @@ public class PGPPrivateKeyRingModel extends PGPSecretKeyRing implements Serializ
 		this.id = id;
 	}
 	
-	private void setPrivateKeyRingBlob(byte[] secretKeyRingBlob)
+	private void setPrivateKeyRingBlob(byte[] privateKeyRingBlob)
 	{
-		this.privateKeyRingBlob = secretKeyRingBlob;
+		this.privateKeyRingBlob = privateKeyRingBlob;
 	}
 }

@@ -1,6 +1,8 @@
 package uk.ac.brookes.danielf.pgpmail.email;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Properties;
 
 import javax.activation.CommandMap;
@@ -8,10 +10,12 @@ import javax.activation.MailcapCommandMap;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Store;
 
 import uk.ac.brookes.danielf.pgpmail.internal.Settings;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -25,28 +29,62 @@ import android.util.Pair;
  * http://www.jondev.net/articles/Sending_Emails_without_User_Intervention_
  * %28no_Intents%29_in_Android
  * 
- * Additional code added by Me (Daniel Fitzgerald)
+ * Additional code added by Daniel Fitzgerald
  * 
  * @author Jon Simon
  * 
  */
-public class GetMail extends AsyncTask<Pair<Integer, Pair<Integer, Integer>>, Void, Object> {
+public class GetMail extends AsyncTask<Pair<Integer, Integer>, Void, ArrayList<Email>>{
 
+	private final static String LOG_TAG = "GET_MAIL";
+	
 	private String user;
 	private String host;
 	private String pass;
 
 	private Context context;
-	
-	public final static int GET_MESSAGES = 0;
-	public final static int GET_MESSAGE_COUNT = 1;
+	ProgressDialog pd = null;
 
 	public GetMail(Context context) {
 		this.context = context;
 	}
-
+	
+	public interface MailListener
+	{
+		public void onMailReady(ArrayList<Email> emails);
+	}
+	
 	@Override
-	protected Object doInBackground(Pair<Integer, Pair<Integer, Integer>>... pairs) {
+	protected void onPreExecute()
+	{
+		super.onPreExecute();
+		//runs on the main ui thread
+		pd = new ProgressDialog(context);
+		pd.setTitle("Inbox");
+		pd.setMessage("Fetching mail...");
+		pd.setCancelable(false);
+		pd.setIndeterminate(true);
+		pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		pd.show();
+	}
+	
+	@Override
+	protected void onProgressUpdate(Void... progress)
+	{
+
+	}
+	
+	/**
+	 * Get messages from the inbox in index positions start>end.
+	 * Checks if the message is in plaintext format and returns
+	 * a list containing those that are.
+	 * 
+	 * @param loadCount - the amount of emails already loaded in the inbox activity
+	 * @param amount
+	 * @return
+	 */
+	@Override
+	protected ArrayList<Email> doInBackground(Pair<Integer, Integer>... pairs) {
 
 		// There is something wrong with MailCap, javamail can not find a
 		// handler for the multipart/mixed part, so this bit needs to be added.
@@ -65,26 +103,7 @@ public class GetMail extends AsyncTask<Pair<Integer, Pair<Integer, Integer>>, Vo
 		pass = settings.getEmailPassword();
 		host = settings.getIMAPServer();
 		
-		int action = pairs[0].first;
-		Email[] emails;
-		Integer count;
-		
-		if(action == GET_MESSAGES)
-		{
-			emails = getInbox(pairs[0].second.first, pairs[0].second.second);
-			return emails;
-		}	
-		else if(action == GET_MESSAGE_COUNT)
-		{
-			count = getEmailCount();
-			return count;
-		}
-		
-		return null;
-	}
-	
-	private Email[] getInbox(int start, int end)
-	{
+		ArrayList<Email> emails = new ArrayList<Email>();
 		/*
 		 * Get mail!
 		 */
@@ -95,7 +114,6 @@ public class GetMail extends AsyncTask<Pair<Integer, Pair<Integer, Integer>>, Vo
 		Store store = null;
 		Folder inbox = null;
 		
-		Email emails[] = null;
 		try {
 			
 			store = session.getStore();
@@ -103,15 +121,40 @@ public class GetMail extends AsyncTask<Pair<Integer, Pair<Integer, Integer>>, Vo
 			inbox = store.getFolder("INBOX");
 			inbox.open(Folder.READ_ONLY);
 			
-			Log.i("Mail - getting inbox, there are this emails in inbox: ",
-					String.valueOf(inbox.getMessageCount()));
+			int loadCount = pairs[0].first;
+			int amount = pairs[0].second;
+			int start = 0;
+			int end = 0;
+			
+			//how many emails in the inbox
+			int count = inbox.getMessageCount();
+			Log.d(LOG_TAG, "there are " + count + " email(s) in the inbox");
+			if(count > amount)
+			{
+				//get a load of emails from the inbox
+				start = (count - (amount + loadCount));
+				end = count - loadCount;
+				Log.d(LOG_TAG, "start = " + start + " end = " + end);
+			}
+			else
+			{
+				//if the number of emails in the inbox
+				//is less than amount then load
+				//the whole inbox
+				start = 1;
+				end = count;
+			}
 			
 			Message messages[] = inbox.getMessages(start, end);
-			emails = new Email[messages.length];
 
 			for (int i = 0; i < messages.length; i++) 
 			{
-				emails[i] = new Email(messages[i]);
+				//if the message content is a string or it's in plain text add it to the list
+				if(messages[i].getContent() instanceof String)
+					emails.add(new Email(messages[i], context));
+				else if(Email.isPlaintext((Multipart) messages[i].getContent()))
+						emails.add(new Email(messages[i], context));
+				
 			}
 			
 		} catch (MessagingException e) {
@@ -119,32 +162,22 @@ public class GetMail extends AsyncTask<Pair<Integer, Pair<Integer, Integer>>, Vo
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		//TODO: think we need to reverse the order here to get the emails newest at the top
+		Collections.reverse(emails);
 		return emails;
 	}
 	
-	private Integer getEmailCount()
+	@Override
+	protected void onPostExecute(ArrayList<Email> result)
 	{
-		Properties props = new Properties();
-		props.setProperty("mail.store.protocol", "imaps");
-
-		Session session = Session.getInstance(props, null);
-		Store store = null;
-		Folder inbox = null;
-		
-		Integer count = null;
-		try {
-			
-			store = session.getStore();
-			store.connect(host, user, pass);
-			inbox = store.getFolder("INBOX");
-			inbox.open(Folder.READ_ONLY);
-			
-			count = Integer.valueOf(inbox.getMessageCount());
-			
-		} catch (MessagingException e) {
-			e.printStackTrace();
+		//runs on the main ui thread
+		if(pd.isShowing())
+		{
+			pd.dismiss();
 		}
-		return count;
+		
+		//deliver the mail via listener callback interface
+		MailListener mListener = (MailListener) context;
+		mListener.onMailReady(result);
 	}
 }

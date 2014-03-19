@@ -1,7 +1,5 @@
 package uk.ac.brookes.danielf.pgpmail.activities;
 
-import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +34,7 @@ public class ManageKeysActivity extends Activity implements OnItemClickListener 
 
 	private Switch   keySwitch;
 	private ListView keyList;
+	
 	/*
 	 * This button will either start the create key activity
 	 * or the import key activity depending on whether
@@ -79,7 +78,9 @@ public class ManageKeysActivity extends Activity implements OnItemClickListener 
 					button.setText("Create keys");
 					
 					//notify the adapter the dataset has changed (from public to private)
+					//TODO: don't we actually need to set the adapter to use the sec key list????
 					ka.notifyDataSetInvalidated();
+					
 					
 					//populate list with private keys
 					Log.i("ManageKeys", "Listing private keys");
@@ -161,31 +162,39 @@ public class ManageKeysActivity extends Activity implements OnItemClickListener 
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Intent myIntent = new Intent(ManageKeysActivity.this, KeyInfo.class);
 		
-		long keyID = 0;
-		int algo = 0;
-		int keyleng = 0;
+		long keyid = 0;
+		int algorithm = 0;
+		int keylength = 0;
 		Date created = null;
-		String expiry = "";
-		String trustdata = "";
+		int expiration = 0;
+		byte[] trustdata = null;
+		boolean isMasterKey = false;
 		
+		//we only display info about the key if it's a public key
 		if(keySwitch.isChecked())
 		{
-			PGPPublicKeyRingModel key = pubKeyList.get(position);
-			keyID = key.getId();
-			algo = key.getPublicKey().getAlgorithm();
-			keyleng = key.getPublicKey().getBitStrength();
-			created = key.getPublicKey().getCreationTime();
-			try {
-				trustdata = new String(key.getPublicKey().getTrustData(), "UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
+			PGPPublicKeyRingModel keyring = pubKeyList.get(position);
+			PGPPublicKey master = PGP.getMasterKeyFromKeyRing(keyring);
+			keyid = master.getKeyID();
+			algorithm = master.getAlgorithm();
+			keylength = master.getBitStrength();
+			created = master.getCreationTime();
+			expiration = master.getValidDays();
+			trustdata = master.getTrustData();
+			isMasterKey = master.isMasterKey();
+
+			//put the key info in extra's to be passed into the next activity
+			myIntent.putExtra("keyid", keyid);
+			myIntent.putExtra("algorithm", algorithm);
+			myIntent.putExtra("keylength", keylength);
+			myIntent.putExtra("created", created.toString());
+			myIntent.putExtra("expiration", expiration);
+			myIntent.putExtra("trustdata", trustdata);
+			myIntent.putExtra("keytype", isMasterKey);
+
+			//start the activity
+			ManageKeysActivity.this.startActivity(myIntent);
 		}
-		else
-		{
-			PGPPrivateKeyRingModel key = secKeyList.get(position);
-		}
-		ManageKeysActivity.this.startActivity(myIntent);
 	}
 	
 	class KeyAdapter extends BaseAdapter
@@ -203,7 +212,8 @@ public class ManageKeysActivity extends Activity implements OnItemClickListener 
 		public int getCount() {
 			if(keySwitch.isChecked())
 				return pubKeyList.size();
-			return secKeyList.size();
+			else
+				return secKeyList.size();
 		}
 
 		@Override
@@ -228,10 +238,9 @@ public class ManageKeysActivity extends Activity implements OnItemClickListener 
 			{
 				if(pubKeyList.size() > 0)
 				{
-					
-					keyIdentity.setText(PGP.getUserIdsFromPublicKey(pubKeyList.get(position).getPublicKey()));
-					//TODO: figure out how to show what algo it is rather than a number
-					keyInfo.setText(String.valueOf(pubKeyList.get(position).getPublicKey().getAlgorithm()));
+					PGPPublicKey masterKey = PGP.getMasterKeyFromKeyRing(pubKeyList.get(position));
+					keyIdentity.setText(PGP.getUserIdsFromPublicKey(masterKey));
+					keyInfo.setText(PGP.getAlgorithmAsString(masterKey.getAlgorithm()));
 				}
 				else
 				{
@@ -243,8 +252,9 @@ public class ManageKeysActivity extends Activity implements OnItemClickListener 
 			{
 				if(secKeyList.size() > 0)
 				{
-					keyIdentity.setText(PGP.getUserIdsFromSecretKey(secKeyList.get(position).getSecretKey()));
-					keyInfo.setText(String.valueOf(secKeyList.get(position).getSecretKey().getKeyEncryptionAlgorithm()));
+					PGPPrivateKeyRingModel secKey = secKeyList.get(position);
+					keyIdentity.setText(PGP.getUserIdsFromSecretKey(secKey.getSecretKey()));
+					keyInfo.setText(PGP.getAlgorithmAsString(secKey.getSecretKey().getPublicKey().getAlgorithm()));
 				}
 				else
 				{

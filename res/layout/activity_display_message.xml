@@ -15,7 +15,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="from" />
+        android:text="" />
 
     <TextView
         android:id="@+id/messageTo"
@@ -24,7 +24,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/messageFrom"
         android:layout_below="@+id/messageFrom"
-        android:text="to" />
+        android:text="" />
 
     <View
         android:id="@+id/line1"
@@ -40,8 +40,8 @@
         android:layout_alignLeft="@+id/line1"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/line1"
-        android:layout_marginTop="15dp"
-        android:text="Subject" />
+        android:layout_marginTop="2dp"
+        android:text="" />
 
     <TextView
         android:id="@+id/messageDate"
@@ -50,7 +50,7 @@
         android:layout_alignLeft="@+id/messageSubject"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/messageSubject"
-        android:text="12/12/13 16:02" />
+        android:text="" />
     
     <View
         android:id="@+id/line2"
@@ -58,20 +58,40 @@
         android:layout_height="1dp"
         android:layout_below="@+id/messageDate"
         android:background="@android:color/darker_gray" />
+    
+    <TextView
+        android:id="@+id/attachments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/line2"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/line2"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="attachments" />
+    
+    <View
+        android:id="@+id/line3"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/attachments"
+        android:background="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/messageBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_alignLeft="@+id/line2"
+        android:layout_above="@+id/decryptBtn"
+        android:layout_alignLeft="@+id/line3"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/line2"
-        android:layout_marginTop="19dp"
-        android:text="Message Body here!" />
+        android:layout_below="@+id/attachments"
+        android:layout_marginTop="5dp"
+        android:maxLines="15"
+        android:scrollbars="vertical"
+        android:text="" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/decryptBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -10,6 +10,9 @@ public class Settings {
 	// default mode - encrypt & sign, encrypt, sign
 	// email username
 	// email password
+	// application first run?
+	// attachment directory
+	// decoded files directory
 	
 	private SharedPreferences settings;
 	private SharedPreferences.Editor settingsEditor;
@@ -89,5 +92,44 @@ public class Settings {
 	{
 		String pass = settings.getString("password", null);
 		return pass;
+	}
+	
+	public boolean getFirstRun()
+	{
+		boolean firstRun = settings.getBoolean("firstrun", true);
+		return firstRun;
+	}
+	
+	public void setFirstRun(boolean firstRun)
+	{
+		settingsEditor = settings.edit();
+		settingsEditor.putBoolean("firstrun", firstRun);
+		settingsEditor.commit();
+	}
+	
+	public void setAttachDir(String attachDir)
+	{
+		settingsEditor = settings.edit();
+		settingsEditor.putString("attachdir", attachDir);
+		settingsEditor.commit();
+	}
+	
+	public String getAttachDir()
+	{
+		String attachDir = settings.getString("attachdir", null);
+		return attachDir;
+	}
+	
+	public void setDecodeDir(String decodeDir)
+	{
+		settingsEditor = settings.edit();
+		settingsEditor.putString("decodedir", decodeDir);
+		settingsEditor.commit();
+	}
+	
+	public String getDecodeDir()
+	{
+		String decodeDir = settings.getString("decodedir", null);
+		return decodeDir;
 	}
 }

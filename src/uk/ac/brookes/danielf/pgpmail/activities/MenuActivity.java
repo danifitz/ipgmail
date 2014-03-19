@@ -36,15 +36,19 @@ public class MenuActivity extends Activity {
 					break;
 				//decode
 				case 1:
-					myIntent = new Intent(MenuActivity.this, DecodeActivity.class);
+					myIntent = new Intent(MenuActivity.this, InboxActivity.class);
 					break;
-				//settings
+				//decode verify
 				case 2:
-					myIntent = new Intent(MenuActivity.this, SettingsActivity.class);
+					myIntent = new Intent(MenuActivity.this, DecodeVerify.class);
 					break;
 				//manage keys
 				case 3:
 					myIntent = new Intent(MenuActivity.this, ManageKeysActivity.class);
+					break;
+				//settings
+				case 4:
+					myIntent = new Intent(MenuActivity.this, SettingsActivity.class);
 					break;
 				default:
 					//do nothing

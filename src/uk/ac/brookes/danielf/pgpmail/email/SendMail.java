@@ -1,9 +1,14 @@
 package uk.ac.brookes.danielf.pgpmail.email;
 
+import java.io.File;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Properties;
 
 import javax.activation.CommandMap;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.activation.MailcapCommandMap;
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
@@ -19,9 +24,12 @@ import javax.mail.internet.MimeMultipart;
 import uk.ac.brookes.danielf.pgpmail.internal.Settings;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class SendMail extends AsyncTask<Email, Void, Boolean> {
 
+	private final static String LOG_TAG = "SENDMAIL";
+	
 	private Context context;
 
 	private String user;
@@ -54,7 +62,7 @@ public class SendMail extends AsyncTask<Email, Void, Boolean> {
 		Settings settings = new Settings(context);
 		user = settings.getEmailUsername();
 		pass = settings.getEmailPassword();
-		host = settings.getIMAPServer();
+		host = settings.getSMTPServer();
 
 		if (!user.equals("") && !pass.equals("")) {
 
@@ -78,11 +86,29 @@ public class SendMail extends AsyncTask<Email, Void, Boolean> {
 				msg.setSubject(emails[0].getSubject());
 				msg.setSentDate(new Date());
 
-				// setup message body
+				//setup message body
 				BodyPart messageBodyPart = new MimeBodyPart();
 				messageBodyPart.setText(emails[0].getMsgBody());
 				_multipart = new MimeMultipart();
 				_multipart.addBodyPart(messageBodyPart);
+				
+				//setup attachments
+				if(emails[0].hasAttachments)
+				{
+					Iterator<File> itr = emails[0].getAttachments().iterator();
+					while(itr.hasNext())
+					{
+				    	File file = itr.next();
+						MimeBodyPart attachBodyPart = new MimeBodyPart();
+					    DataSource source = new FileDataSource(file.getAbsolutePath());
+					    attachBodyPart.setDataHandler(new DataHandler(source));
+					    String name = file.getName();
+					    Log.d(LOG_TAG, "attaching file " + name);
+					    attachBodyPart.setFileName(name);
+					 
+					    _multipart.addBodyPart(attachBodyPart);
+					}
+				}
 
 				// Put parts in message
 				msg.setContent(_multipart);
